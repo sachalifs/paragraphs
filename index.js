@@ -19,11 +19,9 @@ function Paragraph(text, maxlength, limiter) {
   	return new Paragraph();
   }
 
-  if (maxlength) {
-  	this.text = truncate(text, maxlength, limiter)
-  } else {  	
-  	this.text = text;
-  }
+  this.text = text;
+  this.maxlength = maxlength;
+  this.limiter = limiter;
 }
 
 /**
@@ -36,8 +34,15 @@ Paragraph.prototype.split = function(text, character) {
 
   var paragraphs = text.split(character);
   var ps = '';
+  var length = 0;
   for (var i = 0, p = paragraphs[i]; i < paragraphs.length; i++, p = paragraphs[i]) {
-    ps += '<p>' + p + '</p>';
+    length += p.length;
+    if (this.maxlength && (this.maxlength - length) > 0)
+    {
+  	  ps += '<p>' + truncate(p, this.maxlength - length, limiter) + '</p>';	
+    } else {
+      ps += '<p>' + p + '</p>';
+    }
   }
   return ps;
 };
