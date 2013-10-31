@@ -16,7 +16,7 @@
 Used to split the given text into several paragraphs using the character as paragraph separator
 
 ```js
-p.split('hello\nworld!', "\n") // returns "&lt;phello&lt;/p&gt;&lt;p&gt;world!&lt;/p&gt;"
+p.split('hello\nworld!', "\n") // returns "<p>hello</p><p>world!</p>"
 ```
 
 ## License
