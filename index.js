@@ -3,7 +3,6 @@
  */
 
 module.exports = Paragraph;
-module.exports = split;
 
 /**
  * Creates a Paragraph instance
