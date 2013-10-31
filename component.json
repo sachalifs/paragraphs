@@ -1,22 +1,12 @@
 {
-  "name": "user-agent",
-  "repo": "slifszyc/user-agent",
-  "description": "User agent parser",
-  "version": "0.0.9",
-  "keywords": ["user", "agent", "parser", "ua", "browser", "version"],
-  "dependencies": {
-  	  "component/inherit": "*"
-  	},
+  "name": "paragraphs",
+  "repo": "slifszyc/paragraphs",
+  "description": "Split a single string into several paragraphs",
+  "version": "0.0.1",
+  "keywords": ["string", "paragraphs", "p", "split"],
+  "dependencies": {},
   "development": {},
-  "scripts": [
-      "index.js"
-    , "lib/ie.js"
-    , "lib/ff.js"
-    , "lib/chrome.js"
-    , "lib/safari.js"
-    , "lib/mac.js"
-    , "lib/query.js"
-  ],
+  "scripts": [ "index.js" ],
   "main": "index.js",
   "license": "MIT"
 }

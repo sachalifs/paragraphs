@@ -1,34 +1,22 @@
 
-# user-agent
+# paragraphs
 
-  User agent parser.
-  Parse client's browser version.
+  Split a single string into several paragraphs by a given character.
 
 ## Installation
 
   Install with [component(1)](http://component.io):
 
-    $ component install slifszyc/user-agent
+    $ component install slifszyc/paragraphs
 
 ## API
 
-### ua#ie
+### p#split(text, [character])
 
-Used to know which browser version the client is using
+Used to split the given text into several paragraphs using the character as paragraph separator
 
 ```js
-ua.ie().is(9)   // returns true when browser is IE9, false otherwise
-ua.ie().lt(9)   // returns true when browser is lower than IE9, false otherwise
-ua.ie().lte(9)  // returns true when browser is lower than equals IE9, false otherwise
-ua.ie().gt(9)   // returns true when browser is greater than IE9, false otherwise
-ua.ie().gte(9)  // returns true when browser is greater than equals IE9, false otherwise
-```
-
-You can call these methods alternatively with
-```js
-ua.ff()
-ua.chrome()
-ua.safari()
+p.split('hello\nworld!', "\n") // returns "&lt;phello&lt;/p&gt;&lt;p&gt;world!&lt;/p&gt;"
 ```
 
 ## License
