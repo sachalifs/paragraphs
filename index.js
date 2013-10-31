@@ -14,7 +14,7 @@ module.exports = Paragraph;
  * Creates a Paragraph instance
  */
 
-function Paragraph(text, maxlength, limiter) {
+function Paragraph(text, maxlength, limiter, maxparagraphs) {
   if (!(this instanceof Paragraph)) {
   	return new Paragraph();
   }
@@ -22,6 +22,7 @@ function Paragraph(text, maxlength, limiter) {
   this.text = text;
   this.maxlength = maxlength;
   this.limiter = limiter;
+  this.maxparagraphs = maxparagraphs;
 }
 
 /**
@@ -36,10 +37,12 @@ Paragraph.prototype.split = function(text, character) {
   var ps = '';
   var length = 0;
   for (var i = 0, p = paragraphs[i]; i < paragraphs.length; i++, p = paragraphs[i]) {
-    length += p.length;
-    if (this.maxlength && (this.maxlength - length) > 0)
+    if (this.maxlength)
     {
-  	  ps += '<p>' + truncate(p, this.maxlength - length, this.limiter) + '</p>';	
+      if (i == this.maxparagraphs || this.maxlength - length > 0) {
+        ps += '<p>' + truncate(p, this.maxlength - length, this.limiter) + '</p>'; 
+      }
+      length += p.length;
     } else {
       ps += '<p>' + p + '</p>';
     }
