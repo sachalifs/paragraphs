@@ -4,7 +4,9 @@
   "description": "Split a single string into several paragraphs",
   "version": "0.0.1",
   "keywords": ["string", "paragraphs", "p", "split"],
-  "dependencies": {},
+  "dependencies": {
+    "component/truncate": "*"
+  },
   "development": {},
   "scripts": [ "index.js" ],
   "main": "index.js",

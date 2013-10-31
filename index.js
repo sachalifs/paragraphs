@@ -1,4 +1,10 @@
 /**
+ * Module dependencies.
+ */
+
+var truncate = require('truncate');
+
+/**
  * Expose Paragraph constructor
  */
 
@@ -8,12 +14,16 @@ module.exports = Paragraph;
  * Creates a Paragraph instance
  */
 
-function Paragraph(text) {
+function Paragraph(text, maxlength, limiter) {
   if (!(this instanceof Paragraph)) {
   	return new Paragraph();
   }
 
-  this.text = text;
+  if (maxlength) {
+  	this.text = truncate(text, maxlength, limiter)
+  } else {  	
+  	this.text = text;
+  }
 }
 
 /**
