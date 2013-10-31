@@ -36,10 +36,12 @@ Paragraph.prototype.split = function(text, character) {
   var ps = '';
   var length = 0;
   for (var i = 0, p = paragraphs[i]; i < paragraphs.length; i++, p = paragraphs[i]) {
-    length += p.length;
-    if (this.maxlength && (this.maxlength - length) > 0)
+    if (this.maxlength)
     {
-  	  ps += '<p>' + truncate(p, this.maxlength - length, this.limiter) + '</p>';	
+      if (this.maxlength - length > 0) {
+        ps += '<p>' + truncate(p, this.maxlength - length, this.limiter) + '</p>';  
+      }
+      length += p.length;
     } else {
       ps += '<p>' + p + '</p>';
     }
