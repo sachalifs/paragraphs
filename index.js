@@ -1,9 +1,19 @@
 /**
+ * Expose browser constructors
+ */
+
+exports.ie = require('./lib/ie');
+exports.ff = require('./lib/ff');
+exports.chrome = require('./lib/chrome');
+exports.safari = require('./lib/safari');
+exports.mac = require('./lib/mac');
+
+/**
  * Expose Paragraph constructor
  */
 
 module.exports = Paragraph;
-exports.split = split;
+module.exports = split;
 
 /**
  * Creates a Paragraph instance
@@ -21,7 +31,7 @@ function Paragraph(text) {
  * Splits a text into paragraphs
  */
 
-function split(text, character) {
+Paragraph.prototype.split = function(text, character) {
   var text = text || this.text;
   var character = character || "\n";
 
@@ -31,4 +41,4 @@ function split(text, character) {
     ps += '<p>' + p + '</p>';
   }
   return ps;
-}
+};
