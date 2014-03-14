@@ -39,11 +39,11 @@ Paragraph.prototype.split = function(text, character) {
     if (this.maxlength)
     {
       if (this.maxlength - length > 0) {
-        ps += '<p>' + truncate(p, this.maxlength - length, this.limiter) + '</p>';  
+        ps += truncate(p, this.maxlength - length, this.limiter);
       }
       length += p.length;
     } else {
-      ps += '<p>' + p + '</p>';
+      ps += p;
     }
   }
   return ps;
